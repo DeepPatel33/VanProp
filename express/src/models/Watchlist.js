@@ -70,7 +70,7 @@ const isPropertyInWatchlist = async (userId, propertyId) => {
  * Add property to watchlist
  */
 const addToWatchlist = async (userId, propertyId, notes = '', priority = 3, tags = null) => {
-    // Check if already exists
+    
     const exists = await isPropertyInWatchlist(userId, propertyId);
     if (exists) {
         throw new Error('Property already in watchlist');

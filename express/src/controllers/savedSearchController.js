@@ -207,7 +207,7 @@ const getRecentSearches = async (req, res) => {
         
         const searches = await SavedSearch.getRecentSearches(userId, limit);
 
-        // Parse search_criteria JSON strings
+        
         const parsedSearches = searches.map(search => ({
             ...search,
             search_criteria: JSON.parse(search.search_criteria)
@@ -234,7 +234,7 @@ const searchSavedSearches = async (req, res) => {
         
         const searches = await SavedSearch.searchSavedSearches(userId, searchTerm);
 
-        // Parse search_criteria JSON strings
+        
         const parsedSearches = searches.map(search => ({
             ...search,
             search_criteria: JSON.parse(search.search_criteria)

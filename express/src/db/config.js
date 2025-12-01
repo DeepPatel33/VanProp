@@ -2,11 +2,11 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const fs = require('fs');
 
-// Database file path
+
 const DB_PATH = process.env.DB_PATH || path.join(__dirname, '../data/data.db');
 
 function createConnection() {
-    // Ensure data directory exists
+    
     const dataDir = path.dirname(DB_PATH);
     if (!fs.existsSync(dataDir)) {
         fs.mkdirSync(dataDir, { recursive: true });
@@ -20,7 +20,7 @@ function createConnection() {
         console.log('Connected to SQLite database');
     });
 
-    // Enable foreign keys
+    
     db.run('PRAGMA foreign_keys = ON', (err) => {
         if (err) {
             console.error('Error enabling foreign keys:', err.message);

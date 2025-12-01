@@ -114,19 +114,7 @@ main {
   padding: 2rem;
 }
 
-/* Footer */
-.app-footer {
-  background-color: #f5f5f5;
-  padding: 1.5rem 2rem;
-  text-align: center;
-  border-top: 1px solid #e0e0e0;
-  margin-top: 3rem;
-}
 
-.app-footer p {
-  font-size: 0.875rem;
-  color: #666666;
-}
 
 /* Breadcrumb navigation */
 .breadcrumb,

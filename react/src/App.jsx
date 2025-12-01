@@ -90,9 +90,6 @@ function App() {
         {renderPage()}
       </main>
 
-      <footer className="app-footer">
-        <p>&copy; 2024 VanProperty Insights | BCIT WMDD Project by Deep Patel</p>
-      </footer>
     </div>
   );
 }

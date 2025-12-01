@@ -41,7 +41,7 @@ const getPropertyById = async (req, res) => {
             });
         }
 
-        // Also fetch tax history
+        
         const history = await Property.getPropertyHistory(propertyId);
 
         res.json({
@@ -210,7 +210,7 @@ const createProperty = async (req, res) => {
     try {
         const propertyData = req.body;
 
-        // Validate required fields
+        
         if (!propertyData.pid || !propertyData.civic_address || !propertyData.neighborhood_id) {
             return res.status(400).json({
                 success: false,

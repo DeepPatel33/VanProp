@@ -67,7 +67,7 @@ const addToWatchlist = async (req, res) => {
     try {
         const { user_id, property_id, notes, priority, tags } = req.body;
 
-        // Validate required fields
+        
         if (!user_id || !property_id) {
             return res.status(400).json({
                 success: false,
@@ -75,7 +75,7 @@ const addToWatchlist = async (req, res) => {
             });
         }
 
-        // Parse tags if it's a string
+        
         let parsedTags = tags;
         if (typeof tags === 'object') {
             parsedTags = JSON.stringify(tags);
@@ -121,7 +121,7 @@ const updateWatchlistItem = async (req, res) => {
         const watchlistId = req.params.watchlistId;
         const updates = req.body;
 
-        // Parse tags if it's an object
+        
         if (updates.tags && typeof updates.tags === 'object') {
             updates.tags = JSON.stringify(updates.tags);
         }

@@ -47,7 +47,7 @@ const createSavedSearch = async (userId, searchName, searchCriteria) => {
         VALUES (?, ?, ?)
     `;
     
-    // Convert search criteria object to JSON string if it's an object
+    
     const criteriaString = typeof searchCriteria === 'object' 
         ? JSON.stringify(searchCriteria) 
         : searchCriteria;

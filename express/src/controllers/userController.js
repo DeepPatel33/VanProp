@@ -44,12 +44,12 @@ const getUserById = async (req, res) => {
             });
         }
 
-        // Parse preferred_neighborhoods if it's a JSON string
+        
         if (user.preferred_neighborhoods) {
             try {
                 user.preferred_neighborhoods = JSON.parse(user.preferred_neighborhoods);
             } catch (e) {
-                // Keep as string if parsing fails
+                
             }
         }
 
@@ -105,7 +105,7 @@ const createUser = async (req, res) => {
     try {
         const { username, email, full_name, account_status } = req.body;
 
-        // Validate required fields
+        
         if (!username || !email || !full_name) {
             return res.status(400).json({
                 success: false,
@@ -113,7 +113,7 @@ const createUser = async (req, res) => {
             });
         }
 
-        // Check if username or email already exists
+        
         const usernameExists = await User.usernameExists(username);
         if (usernameExists) {
             return res.status(409).json({

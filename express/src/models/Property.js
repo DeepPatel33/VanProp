@@ -24,7 +24,7 @@ const getAllProperties = async (filters = {}) => {
     
     const params = [];
 
-    // Apply filters
+    
     if (filters.neighborhood) {
         sql += ` AND n.neighborhood_name = ?`;
         params.push(filters.neighborhood);
@@ -50,12 +50,12 @@ const getAllProperties = async (filters = {}) => {
         params.push(`%${filters.search}%`);
     }
 
-    // Sorting
+    
     const sortBy = filters.sort_by || 'current_total_value';
     const sortOrder = filters.sort_order || 'DESC';
     sql += ` ORDER BY p.${sortBy} ${sortOrder}`;
 
-    // Pagination
+    
     const limit = parseInt(filters.limit) || 50;
     const offset = parseInt(filters.offset) || 0;
     sql += ` LIMIT ? OFFSET ?`;

@@ -4,39 +4,52 @@ const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
 
-// Import routes
 const propertyRoutes = require('./routes/propertyRoutes');
 const watchlistRoutes = require('./routes/watchlistRoutes');
 const savedSearchRoutes = require('./routes/savedSearchRoutes');
 const userRoutes = require('./routes/userRoutes');
 
-// Import database config
 const { getDb } = require('./db/config');
 
-// Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5000;
 const API_PREFIX = process.env.API_PREFIX || '/api';
 
-// Security middleware
 app.use(helmet());
 
-// CORS configuration
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://localhost:5173',
+    /^https:\/\/.*\.app\.github\.dev$/
+];
+
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
+    origin: function (origin, callback) {
+        if (!origin) return callback(null, true);
+        
+        const isAllowed = allowedOrigins.some(allowed => {
+            if (typeof allowed === 'string') {
+                return allowed === origin;
+            }
+            return allowed.test(origin);
+        });
+        
+        if (isAllowed) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
     credentials: true
 }));
 
-// Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Logging middleware (only in development)
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
-// Initialize database connection
 try {
     getDb();
     console.log('Database initialized');
@@ -45,7 +58,6 @@ try {
     process.exit(1);
 }
 
-// Health check endpoint
 app.get('/', (req, res) => {
     res.json({
         success: true,
@@ -60,7 +72,6 @@ app.get('/', (req, res) => {
     });
 });
 
-// API status endpoint
 app.get(`${API_PREFIX}/status`, (req, res) => {
     res.json({
         success: true,
@@ -70,13 +81,11 @@ app.get(`${API_PREFIX}/status`, (req, res) => {
     });
 });
 
-// API Routes
 app.use(`${API_PREFIX}/properties`, propertyRoutes);
 app.use(`${API_PREFIX}/watchlist`, watchlistRoutes);
 app.use(`${API_PREFIX}/saved-searches`, savedSearchRoutes);
 app.use(`${API_PREFIX}/users`, userRoutes);
 
-// 404 handler
 app.use((req, res) => {
     res.status(404).json({
         success: false,
@@ -85,7 +94,6 @@ app.use((req, res) => {
     });
 });
 
-// Global error handler
 app.use((err, req, res, next) => {
     console.error('Server Error:', err.stack);
     

@@ -1,6 +1,17 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'https://glowing-parakeet-q7g5pvr6w4p5cxx4v-5000.app.github.dev/api';
+function getApiBaseUrl() {
+  const currentHost = window.location.hostname;
+  
+  if (currentHost.includes('app.github.dev')) {
+    const backendUrl = window.location.origin.replace(/-3000\./, '-5000.');
+    return `${backendUrl}/api`;
+  }
+  
+  return 'http://localhost:5000/api';
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE_URL,

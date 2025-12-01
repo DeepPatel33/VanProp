@@ -110,27 +110,6 @@ function HomePage({ currentUser, onNavigate }) {
         </div>
       </section>
 
-      <section className="features-section">
-        <h3>Features</h3>
-        <div className="features-grid">
-          <div className="feature-card">
-            <h4>🔍 Advanced Search</h4>
-            <p>Filter properties by neighborhood, price range, and property type</p>
-          </div>
-          <div className="feature-card">
-            <h4>⭐ Watchlist</h4>
-            <p>Save properties to your personal watchlist for easy tracking</p>
-          </div>
-          <div className="feature-card">
-            <h4>💾 Saved Searches</h4>
-            <p>Save your search criteria for quick access later</p>
-          </div>
-          <div className="feature-card">
-            <h4>📊 Analytics</h4>
-            <p>View neighborhood statistics and property trends</p>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
