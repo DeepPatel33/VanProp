@@ -1,0 +1,263 @@
+.dashboard-page {
+  padding: 0;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.dashboard-header h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  font-size: 1rem;
+  color: #666666;
+}
+
+/* Dashboard stats */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+/* Watchlist section */
+.watchlist-section,
+.saved-searches-section {
+  margin-bottom: 3rem;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.action-btn {
+  padding: 0.625rem 1.25rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #000000;
+}
+
+/* Watchlist grid */
+.watchlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.watchlist-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1.5rem;
+  transition: box-shadow 0.2s;
+}
+
+.watchlist-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.watchlist-item h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.watchlist-item h4:hover {
+  color: #666666;
+}
+
+.watchlist-item p {
+  font-size: 0.875rem;
+  color: #666666;
+  margin-bottom: 1rem;
+}
+
+.watchlist-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.remove-btn,
+.view-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.remove-btn:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+.view-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Saved searches list */
+.saved-searches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.saved-search-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.saved-search-item:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.saved-search-info h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+}
+
+.saved-search-info p {
+  font-size: 0.875rem;
+  color: #666666;
+}
+
+.search-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.load-btn,
+.delete-btn {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.load-btn:hover {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border-color: #1a1a1a;
+}
+
+.delete-btn:hover {
+  background-color: #f5f5f5;
+}
+
+/* Empty states */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  background-color: #fafafa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.empty-state p {
+  font-size: 1rem;
+  color: #666666;
+  margin-bottom: 1.5rem;
+}
+
+.empty-state button {
+  padding: 0.75rem 1.5rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.empty-state button:hover {
+  background-color: #000000;
+}
+
+/* Override any purple/blue buttons to black */
+.action-btn,
+.empty-state button {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.action-btn:hover,
+.empty-state button:hover {
+  background-color: #000000 !important;
+}
+
+/* Override any purple/blue buttons to black */
+.action-btn,
+.empty-state button {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+}
+
+.action-btn:hover,
+.empty-state button:hover {
+  background-color: #000000 !important;
+}
